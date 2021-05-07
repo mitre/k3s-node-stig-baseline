@@ -23,6 +23,4 @@ include_controls 'k8s-node-stig-baseline' do
     impact 0.0
     desc 'caveat', 'K3S deployments are not configured through Kubeadm and hence non-applicable.'
   end
-
-
 end
