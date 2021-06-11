@@ -57,12 +57,21 @@ Update the following `Inputs` in `inspec.yml` if the default values differ in yo
     type: string
     value: '/var/lib/rancher/k3s/server/tls/'
     required: true
+    profile: k8s-node-stig-baseline
 
   - name: kubectl_path
     description: 'Path to kubectl on the target node'
     type: string
     value: '/usr/local/bin/kubectl'
     required: true
+    profile: k8s-node-stig-baseline
+
+  - name: kubectl_minversion
+    description: 'Minimum version of the kubectl binary on the target node'
+    type: string
+    value: '1.12.9'
+    required: true
+    profile: k8s-node-stig-baseline
 
   - name: kubernetes_conf_files
     description: 'Path to Kubernetes conf files on the target node'
@@ -72,7 +81,7 @@ Update the following `Inputs` in `inspec.yml` if the default values differ in yo
         - /var/lib/rancher/k3s/server/cred/scheduler.kubeconfig
         - /var/lib/rancher/k3s/server/cred/controller.kubeconfig
     required: true
-
+    profile: k8s-node-stig-baseline
 ```
 
 ### How to execute this instance  

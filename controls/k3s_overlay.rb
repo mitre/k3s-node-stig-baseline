@@ -25,32 +25,32 @@ include_controls 'k8s-node-stig-baseline' do
   end
 
   control 'V-242429' do
-    unless kube_apiserver.exist?
+    unless kube_process('k3s server').exist?
       impact 0.0
-      desc 'caveat', 'Kubernetes API Server process is not running on the target.'
+      desc 'caveat', 'K3S Server process is not running on the target.'
     end
 
-    describe kube_apiserver do
+    describe kube_process('k3s server') do
       its('datastore-cafile') { should_not be_nil }
     end
   end
   control 'V-242430' do
-    unless kube_apiserver.exist?
+    unless kube_process('k3s server').exist?
       impact 0.0
-      desc 'caveat', 'Kubernetes API Server process is not running on the target.'
+      desc 'caveat', 'K3S  Server process is not running on the target.'
     end
 
-    describe kube_apiserver do
+    describe kube_process('k3s server') do
       its('datastore-certfile') { should_not be_nil }
     end
   end
   control 'V-242431' do
-    unless kube_apiserver.exist?
+    unless kube_process('k3s server').exist?
       impact 0.0
-      desc 'caveat', 'Kubernetes API Server process is not running on the target.'
+      desc 'caveat', 'K3S Server process is not running on the target.'
     end
 
-    describe kube_apiserver do
+    describe kube_process('k3s server') do
       its('datastore-keyfile') { should_not be_nil }
     end
   end
